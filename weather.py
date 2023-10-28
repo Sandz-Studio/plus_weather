@@ -60,7 +60,7 @@ def load_data_from_csv(csv_file):
     pass
 
 
-def find_min(weather_data):
+def find_min(weather_data): 
     """Calculates the minimum value in a list of numbers.
 
     Args:
