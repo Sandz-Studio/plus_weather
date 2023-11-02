@@ -26,8 +26,8 @@ def convert_date(iso_string):
     """
     pass
 
-
-def convert_f_to_c(temp_in_farenheit):
+# DONE
+def convert_f_to_c(temp_in_farenheit): 
     """Converts an temperature from farenheit to celcius.
 
     Args:
@@ -35,7 +35,9 @@ def convert_f_to_c(temp_in_farenheit):
     Returns:
         A float representing a temperature in degrees celcius, rounded to 1dp.
     """
-    pass
+
+    # celsius = round((float(temp_in_farenheit) - 32) * (5/9),1)
+    # return celsius
 
 
 def calculate_mean(weather_data):
@@ -48,8 +50,21 @@ def calculate_mean(weather_data):
     """
     pass
 
-
+# DONE
 def load_data_from_csv(csv_file):
+
+    weather_data = []
+
+    with open(csv_file, encoding="utf-8") as csv_file:
+        reader = csv.reader(csv_file)
+        next(reader)
+
+        for line in reader:
+            if len(line) != 0:
+                weather_data.append([line[0], int(line[1]), int(line[2])])
+
+    return weather_data
+
     """Reads a csv file and stores the data in a list.
 
     Args:
@@ -57,6 +72,7 @@ def load_data_from_csv(csv_file):
     Returns:
         A list of lists, where each sublist is a (non-empty) line in the csv file.
     """
+
     pass
 
 
@@ -68,6 +84,14 @@ def find_min(weather_data):
     Returns:
         The minium value and it's position in the list. (In case of multiple matches, return the index of the *last* example in the list.)
     """
+    if len(weather_data) == 0:
+        return []
+    
+    min_index = 0
+    min_temps = float(weather_data[0])
+
+    # enumerated_weather_data = enumerate(weather_data)
+
     pass
 
 
