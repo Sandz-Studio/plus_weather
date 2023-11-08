@@ -3,7 +3,7 @@ from datetime import datetime
 
 DEGREE_SYBMOL = u"\N{DEGREE SIGN}C"
 
-
+# DONE
 def format_temperature(temp):
     """Takes a temperature and returns it in string format with the degrees
         and celcius symbols.
@@ -15,8 +15,10 @@ def format_temperature(temp):
     """
     return f"{temp}{DEGREE_SYBMOL}"
 
-
+# DONE
 def convert_date(iso_string):
+    datetime.strftime(iso_string)
+
     """Converts and ISO formatted date into a human readable format.
 
     Args:
@@ -28,6 +30,9 @@ def convert_date(iso_string):
 
 # DONE
 def convert_f_to_c(temp_in_farenheit): 
+    celsius = round((float(temp_in_farenheit) - 32) * (5/9),1)
+    return celsius
+
     """Converts an temperature from farenheit to celcius.
 
     Args:
@@ -36,11 +41,18 @@ def convert_f_to_c(temp_in_farenheit):
         A float representing a temperature in degrees celcius, rounded to 1dp.
     """
 
-    # celsius = round((float(temp_in_farenheit) - 32) * (5/9),1)
-    # return celsius
-
-
+# DONE
 def calculate_mean(weather_data):
+    list_of_int = []
+
+    for item in weather_data:
+        item = float(item)
+        list_of_int.append(item)
+    
+    sum_of_nums = sum(list_of_int)
+    len_of_nums = len(list_of_int)
+    return round(float(sum_of_nums/len_of_nums),5)
+    
     """Calculates the mean value from a list of numbers.
 
     Args:
@@ -75,8 +87,19 @@ def load_data_from_csv(csv_file):
 
     pass
 
-
+# DONE
 def find_min(weather_data): 
+    if not weather_data:
+        return ()
+
+
+    for line in weather_data:
+        min_weather_data = min(weather_data)
+        min_index_num = [index for index, item in enumerate(weather_data) if item == min_weather_data]
+
+        return float(min_weather_data), min_index_num[-1]
+
+
     """Calculates the minimum value in a list of numbers.
 
     Args:
@@ -84,18 +107,19 @@ def find_min(weather_data):
     Returns:
         The minium value and it's position in the list. (In case of multiple matches, return the index of the *last* example in the list.)
     """
-    if len(weather_data) == 0:
-        return []
-    
-    min_index = 0
-    min_temps = float(weather_data[0])
-
-    # enumerated_weather_data = enumerate(weather_data)
-
     pass
 
-
+# DONE
 def find_max(weather_data):
+    if not weather_data:
+        return ()
+
+    for line in weather_data:
+        max_weather_data = max(weather_data)
+        max_index_num = [index for index, item in enumerate(weather_data) if item == max_weather_data]
+
+        return float(max_weather_data), max_index_num[-1]
+
     """Calculates the maximum value in a list of numbers.
 
     Args:
