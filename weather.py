@@ -90,7 +90,7 @@ def load_data_from_csv(csv_file):
 def find_min(weather_data): 
     if not weather_data:
         return ()
-    
+
 
     for line in weather_data:
         min_weather_data = min(weather_data)
