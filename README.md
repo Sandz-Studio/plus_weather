@@ -1,3 +1,3 @@
 ## Project Features
-- [x] Order stories by date
+- [x] ALL weather data tests passed
     ![ALL tests pasted]( test_screenshot/Screen_Shot_2023-11-11_at_11.25.00_pm.png )
